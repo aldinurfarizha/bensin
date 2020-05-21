@@ -1,18 +1,13 @@
 package com.example.bensin;
 
 public class URLs {
-    private  static  final String SERVER="http://exitus-dev.com/testing/";
-    private static final String FOLDER="bensin/";
-    private static final String FINAL=SERVER+FOLDER;
-
-
+    private  static  final String SERVER="http://localhost/apibensin";
+    private static final String FINAL=SERVER;
     private static final String API_ROOT = FINAL+"Api.php?apicall=";
     public static final String GET_CHART_HARIAN = FINAL+"chart_harian.php";
     public static final String GET_CHART_BULANAN = FINAL+"chart_bulanan.php";
-
     public static final String GET_CHART_HARIAN_FULL = FINAL+"chart_harian_full.php";
     public static final String GET_CHART_BULANAN_FULL = FINAL+"chart_bulanan_full.php";
-
     public static final String URL_HAPUS = API_ROOT + "hapus";
     public static final String URL_AMBIL_TRX= API_ROOT + "ambil_data_trx";
     public static final String URL_AMBIL_TRX_BULANAN= API_ROOT + "ambil_bulanan";
