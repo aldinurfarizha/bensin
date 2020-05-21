@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".transaksi">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="20dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorhijau"
+            >
+            <TextView
+                android:drawableLeft="@drawable/judul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Pendapatan Harian"
+                android:textColor="#fff"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:id="@+id/tv_daftar_trx"
+                android:fontFamily="monospace"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                >
+
+            </TextView>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_daftar_trx"
+                android:textColor="#fff"
+                android:text="*Transaksi yang di tampilkan max 60 Hari Kebelakang">
+            </TextView>
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/refresh"
+                android:src="@drawable/refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </ImageView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/progressbar_transaksi"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="visible"
+            android:layout_height="wrap_content">
+        </ProgressBar>
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/list_trx_harian">
+        </androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
+
+</LinearLayout>

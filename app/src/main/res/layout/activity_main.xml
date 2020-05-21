@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:layout_height="140dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selamat Datang"
+                    android:textColor="#fff"
+                    android:fontFamily="monospace"
+                    android:textSize="30dp"
+                    android:layout_margin="10dp">
+
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kamis, 7 January 2020"
+                    android:textColor="#fff"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="monospace"
+                    android:id="@+id/tanggal"
+                    android:textSize="15dp"
+                    android:layout_margin="10dp">
+
+                </TextView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="85dp"
+                    android:layout_below="@+id/tanggal"
+                    android:layout_height="40dp"
+                    app:cardElevation="8dp"
+                    android:layout_marginRight="2dp"
+                    app:cardCornerRadius="8dp"
+                    android:layout_toLeftOf="@id/beli">
+                    <EditText
+                        android:layout_width="85dp"
+                        android:layout_below="@+id/tanggal"
+                        android:background="@null"
+                        android:textAlignment="center"
+                        android:hint="Standmtr"
+                        android:layout_height="40dp"
+                        android:layout_toLeftOf="@id/cek_stock"
+                        android:id="@+id/edt_cekstock">
+
+                    </EditText>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="50dp"
+                    android:layout_below="@+id/tanggal"
+                    android:layout_height="40dp"
+                    app:cardElevation="8dp"
+                    android:id="@+id/beli"
+                    android:layout_marginRight="2dp"
+                    app:cardCornerRadius="8dp"
+                    android:layout_toLeftOf="@id/cek_stock">
+                    <EditText
+                        android:layout_width="50dp"
+                        android:layout_below="@+id/tanggal"
+                        android:background="@null"
+                        android:textAlignment="center"
+                        android:text="0"
+                        android:layout_height="40dp"
+                        android:layout_toLeftOf="@id/cek_stock"
+                        android:id="@+id/edt_cekbeli">
+
+                    </EditText>
+                </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:elevation="4dp"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    android:text="Cek Stock"
+                    android:textSize="10sp"
+                    android:layout_below="@+id/tanggal"
+                    android:drawableLeft="@drawable/search"
+                    android:textColor="#fff"
+                    android:id="@+id/cek_stock"
+                    android:background="@drawable/roundedbutton">
+                </Button>
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/wave">
+
+            </View>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardElevation="8dp"
+                android:layout_margin="20dp"
+
+                app:cardCornerRadius="8dp"
+                android:layout_height="125dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Transaksi Terakhir "
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/trx_kemarin"
+                        android:drawableRight="@drawable/dot"
+                        android:drawableLeft="@drawable/dot">
+                    </TextView>
+                    <LinearLayout
+                        android:layout_below="@+id/trx_kemarin"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="10"
+                        android:layout_height="match_parent">
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                app:cardElevation="2dp">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Stand Meter"
+                                        android:textSize="12sp"
+                                        android:layout_centerHorizontal="true"
+                                        android:id="@+id/tv_standmeter">
+                                    </TextView>
+                                    <ProgressBar
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/progres1"
+                                        android:visibility="visible"
+                                        android:layout_centerInParent="true"
+                                        >
+                                    </ProgressBar>
+                                    <TextView
+                                        android:visibility="gone"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textSize="18sp"
+                                        android:id="@+id/stand_meter_result"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/colorAccent"
+                                        android:layout_centerInParent="true">
+                                    </TextView>
+                                </RelativeLayout>
+                            </androidx.cardview.widget.CardView>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2.5">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                app:cardElevation="2dp">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Penjualan"
+                                        android:textSize="12sp"
+                                        android:layout_centerHorizontal="true"
+                                        android:id="@+id/tv_penjualan">
+                                    </TextView>
+                                    <ProgressBar
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:visibility="visible"
+                                        android:id="@+id/progres2">
+
+                                    </ProgressBar>
+                                    <TextView
+                                        android:visibility="gone"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textSize="18sp"
+                                        android:id="@+id/penjualan_result"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/colorAccent"
+                                        android:layout_centerInParent="true">
+
+                                    </TextView>
+                                </RelativeLayout>
+                            </androidx.cardview.widget.CardView>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2.5">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                app:cardElevation="2dp">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Pembelian"
+                                        android:textSize="12sp"
+                                        android:layout_centerHorizontal="true"
+                                        android:id="@+id/tv_pembelian">
+                                    </TextView>
+                                    <ProgressBar
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:id="@+id/progres3">
+
+                                    </ProgressBar>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:visibility="gone"
+                                        android:id="@+id/pembelian_result"
+                                        android:textSize="18sp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/colorAccent"
+                                        android:layout_centerInParent="true">
+
+                                    </TextView>
+                                </RelativeLayout>
+                            </androidx.cardview.widget.CardView>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                app:cardElevation="2dp">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Stock"
+                                        android:textSize="12sp"
+                                        android:layout_centerHorizontal="true"
+                                        android:id="@+id/tv_stock">
+                                    </TextView>
+                                    <ProgressBar
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:visibility="visible"
+                                        android:layout_centerInParent="true"
+                                        android:id="@+id/progres4">
+
+                                    </ProgressBar>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textSize="18sp"
+                                        android:visibility="gone"
+                                        android:id="@+id/stock_result"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/colorAccent"
+                                        android:layout_centerInParent="true">
+
+                                    </TextView>
+                                </RelativeLayout>
+                            </androidx.cardview.widget.CardView>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardElevation="8dp"
+                android:layout_margin="20dp"
+
+                app:cardCornerRadius="8dp"
+                android:layout_height="125dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Pendapatan Terakhir "
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/pendapatan_kemarin"
+                        android:drawableRight="@drawable/dot_biru"
+                        android:drawableLeft="@drawable/dot_biru">
+                    </TextView>
+                    <LinearLayout
+                        android:layout_below="@+id/pendapatan_kemarin"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="10"
+                        android:layout_height="match_parent">
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                app:cardElevation="2dp">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Penjualan"
+                                        android:textSize="12sp"
+                                        android:layout_centerHorizontal="true"
+                                        android:id="@+id/tv_penjualan_pendapatan">
+                                    </TextView>
+                                    <ProgressBar
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/progres5"
+                                        android:layout_centerInParent="true">
+
+                                    </ProgressBar>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Rp 0"
+                                        android:id="@+id/p_penjualan"
+                                        android:visibility="gone"
+                                        android:textSize="15sp"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:layout_centerInParent="true">
+
+                                    </TextView>
+                                </RelativeLayout>
+                            </androidx.cardview.widget.CardView>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                app:cardElevation="2dp">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Pembelian"
+                                        android:textSize="12sp"
+                                        android:layout_centerHorizontal="true"
+                                        android:id="@+id/tv_pembelian_pendapatan">
+                                    </TextView>
+                                    <ProgressBar
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/progres6"
+                                        android:layout_centerInParent="true"
+                                        >
+
+                                    </ProgressBar>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Rp 0"
+                                        android:visibility="gone"
+                                        android:textSize="15sp"
+                                        android:id="@+id/p_pembelian"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:layout_centerInParent="true">
+
+                                    </TextView>
+                                </RelativeLayout>
+                            </androidx.cardview.widget.CardView>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4">
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                app:cardElevation="2dp">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Laba Bersih"
+                                        android:textSize="12sp"
+                                        android:layout_centerHorizontal="true"
+                                        android:id="@+id/tv_laba_bersih">
+                                    </TextView>
+                                    <ProgressBar
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:id="@+id/progres7">
+
+                                    </ProgressBar>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Rp 0"
+                                        android:visibility="gone"
+                                        android:textSize="17sp"
+                                        android:id="@+id/p_laba"
+                                        android:textStyle="bold"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:layout_centerInParent="true">
+
+                                    </TextView>
+                                </RelativeLayout>
+                            </androidx.cardview.widget.CardView>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_margin="25dp"
+                app:cardElevation="16dp"
+                android:layout_height="100dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Penghasilan Bulan ini :"
+                        android:layout_margin="10dp"
+                        android:id="@+id/tv_bulan_ini"
+                        android:textSize="16sp"
+                        android:textColor="#fff">
+                    </TextView>
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/progres8">
+
+                    </ProgressBar>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_below="@id/tv_bulan_ini"
+                        android:textSize="30sp"
+                        android:textColor="#fff"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true"
+                        android:textStyle="bold"
+                        android:text="Rp 0"
+                        android:id="@+id/pendapatan"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardElevation="8dp"
+                android:layout_margin="20dp"
+
+                app:cardCornerRadius="8dp"
+                android:layout_height="100dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="10"
+
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5"
+                        android:weightSum="10"
+                        android:id="@+id/btn_pembelian"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="63dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="10dp"
+                            android:layout_weight="6.5"
+                            android:layout_gravity="center"
+                            android:background="@drawable/pembelian"></View>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="BULANAN"
+                            android:textColor="#000"
+                            android:textSize="10sp"
+                            android:textAlignment="center"
+                            android:layout_weight="2">
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5"
+                        android:weightSum="10"
+                        android:id="@+id/btn_penjualan"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="66dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="10dp"
+                            android:layout_weight="6.5"
+                            android:layout_gravity="center"
+                            android:background="@drawable/penjualan"></View>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="HARIAN"
+                            android:textSize="10sp"
+                            android:textColor="#000"
+                            android:textAlignment="center"
+                            android:layout_weight="2">
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5"
+                        android:weightSum="10"
+                        android:id="@+id/btn_transaksi"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="62dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="10dp"
+                            android:layout_weight="6.5"
+                            android:layout_gravity="center"
+                            android:background="@drawable/transaksi"></View>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="TRANSAKSI"
+                            android:textColor="#000"
+                            android:textSize="10sp"
+                            android:textAlignment="center"
+                            android:layout_weight="2">
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5"
+                        android:id="@+id/btn_posting"
+                        android:weightSum="10"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="10dp"
+                            android:layout_weight="6.5"
+                            android:layout_gravity="center"
+                            android:background="@drawable/posting"></View>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="POSTING"
+                            android:textColor="#000"
+                            android:textSize="10sp"
+                            android:textAlignment="center"
+                            android:layout_weight="2">
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5"
+                        android:weightSum="10"
+                        android:orientation="vertical">
+                        <View
+                            android:layout_margin="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:background="@drawable/pembelian"
+                            android:layout_weight="7">
+                        </View>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:text="Pembelian"
+                            android:textColor="#000"
+                            android:textAlignment="center"
+                            android:layout_weight="2">
+
+                        </TextView>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardElevation="8dp"
+                android:layout_margin="20dp"
+                app:cardCornerRadius="8dp"
+                android:layout_height="200dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:drawableLeft="@drawable/chart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Grafik Penjualan 7 Hari Ke belakang">
+                        </TextView>
+
+                        <TextView
+                            android:layout_marginRight="5dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/search_oren"
+                            android:text="30 Hari"
+                            android:id="@+id/btn_30_hari"
+                            android:layout_alignParentRight="true">
+
+                        </TextView>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ProgressBar
+                            android:layout_width="wrap_content"
+                            android:id="@+id/progres_harian"
+                            android:layout_centerInParent="true"
+                            android:layout_height="wrap_content">
+
+                        </ProgressBar>
+                        <WebView
+                            android:layout_width="match_parent"
+                            android:id="@+id/grafik_harian"
+                            android:visibility="gone"
+                            android:layout_height="match_parent">
+
+                        </WebView>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardElevation="8dp"
+                android:layout_margin="20dp"
+                app:cardCornerRadius="8dp"
+                android:layout_height="200dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:drawableLeft="@drawable/chart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Grafik Penjualan Bulanan">
+                        </TextView>
+
+                        <TextView
+                            android:layout_marginRight="5dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/search_oren"
+                            android:text="1 Tahun"
+                            android:id="@+id/btn_1_tahun"
+                            android:layout_alignParentRight="true">
+
+                        </TextView>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ProgressBar
+                            android:layout_width="wrap_content"
+                            android:id="@+id/progres_bulanan"
+                            android:layout_centerInParent="true"
+                            android:layout_height="wrap_content">
+
+                        </ProgressBar>
+                        <WebView
+                            android:layout_width="match_parent"
+                            android:id="@+id/grafik_bulanan"
+                            android:visibility="gone"
+                            android:layout_height="match_parent">
+
+                        </WebView>
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="#fff"
+                android:text="Manual"
+                android:id="@+id/posting_manual"
+                android:background="@drawable/roundedbutton">
+
+            </Button>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="#fff"
+                android:text="TABEL"
+                android:id="@+id/tabel"
+                android:background="@drawable/roundedbuttonbiru">
+
+            </Button>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

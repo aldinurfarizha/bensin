@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        android:layout_margin="12dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:padding="8dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/standmeter"
+                android:text=" Stand Meter :"
+                android:textSize="15sp"
+                android:id="@+id/tv_standmeter"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1234"
+                android:textSize="15sp"
+                android:id="@+id/stand_meter"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/tv_standmeter">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/pembelian"
+                android:text=" Pembelian :"
+                android:textSize="15sp"
+                android:layout_below="@id/tv_standmeter"
+                android:id="@+id/tv_pembelian"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="89"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:id="@+id/pembelian"
+                android:layout_below="@id/tv_standmeter"
+                android:layout_toRightOf="@id/tv_pembelian">
+            </TextView>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/penjualan"
+                android:text=" Penjualan :"
+                android:textSize="15sp"
+                android:layout_below="@id/tv_pembelian"
+                android:id="@+id/tv_penjualan"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="72"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:id="@+id/penjualan"
+                android:layout_below="@id/tv_pembelian"
+                android:layout_toRightOf="@id/tv_pembelian">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/stock"
+                android:text=" Stock :"
+                android:textSize="15sp"
+                android:layout_below="@id/tv_penjualan"
+                android:id="@+id/tv_stock"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="32"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:id="@+id/stock"
+                android:layout_below="@id/tv_penjualan"
+                android:layout_toRightOf="@id/tv_stock">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/tanggal"
+                android:text=" Tanggal : "
+                android:textSize="15sp"
+                android:layout_below="@id/tv_stock"
+                android:id="@+id/tv_tanggal"
+                >
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="19-04-2020"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:id="@+id/tanggal2"
+                android:layout_below="@id/tv_stock"
+                android:layout_toRightOf="@id/tv_tanggal">
+            </TextView>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:background="@drawable/hapus"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:id="@+id/btn_hapus"
+                android:layout_height="wrap_content">
+
+            </ImageView>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+</LinearLayout>
