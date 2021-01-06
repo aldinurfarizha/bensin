@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -391,20 +392,15 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this, "Koneksi Error,Tunggu Sebentar", Toast.LENGTH_SHORT).show();
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        getData();
-                    }
-                }, 3000);
-
+                Toast.makeText(MainActivity.this, "Koneksi Error,Buka dan Tutup Kembali Aplikasi", Toast.LENGTH_SHORT).show();
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        stringRequest.setShouldCache(false);
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(1000*5, 5,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-    } //ambil data terakhir
+    }
 
     private void getData2() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URLs.URL_AMBIL_JUMLAH, new Response.Listener<String>() {
@@ -439,19 +435,15 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this, "Koneksi Error,Tunggu Sebentar", Toast.LENGTH_SHORT).show();
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        getData2();
-                    }
-                }, 3000);
+                Toast.makeText(MainActivity.this, "Koneksi Error,Buka dan Tutup Kembali Aplikasi", Toast.LENGTH_SHORT).show();
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        stringRequest.setShouldCache(false);
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(1000*5, 5,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-    } //ambil jumlah
+    }
 
     public void showDateDialog() {
         Calendar newCalendar = Calendar.getInstance();

@@ -1,7 +1,7 @@
 package com.example.bensin;
 
 public class URLs {
-    private  static  final String SERVER="http://localhost/apibensin";
+    private  static  final String SERVER="https://pomminiramajaksa.000webhostapp.com/";
     private static final String FINAL=SERVER;
     private static final String API_ROOT = FINAL+"Api.php?apicall=";
     public static final String GET_CHART_HARIAN = FINAL+"chart_harian.php";

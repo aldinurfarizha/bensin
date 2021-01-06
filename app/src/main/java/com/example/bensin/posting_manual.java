@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -124,6 +125,9 @@ showDateDialog();
                     }
                 };
 
+                stringRequest.setShouldCache(false);
+                stringRequest.setRetryPolicy(new DefaultRetryPolicy(1000*5, 5,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                 VolleySingleton.getInstance(posting_manual.this).addToRequestQueue(stringRequest);
             }
         });
